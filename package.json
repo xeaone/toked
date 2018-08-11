@@ -1,0 +1,28 @@
+{
+  "name": "toked",
+  "version": "1.0.0",
+  "description": "A Jwt tool for the Servey frame work.",
+  "main": "index.js",
+  "keywords": [
+    "toked",
+    "jwt",
+    "servey"
+  ],
+  "author": "Alexander Elias",
+  "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexanderElias/toked.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlexanderElias/toked/issues"
+  },
+  "homepage": "https://github.com/AlexanderElias/toked#readme",
+  "dependencies": {
+    "jsonwebtoken": "^8.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
