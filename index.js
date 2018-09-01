@@ -2,11 +2,18 @@
 
 const Util = require('util');
 const Jwt = require('jsonwebtoken');
+
+const JwtSign = Util.promisify(Jwt.sign);
 const JwtVerify = Util.promisify(Jwt.verify);
 
-module.exports = {
-	name: 'jwt',
-	value: async function (context, encoded, auth) {
+module.exports = class Toked {
+
+	constructor (options) {
+		options = options || {};
+		this.secret = options.secret || null;
+	}
+
+	async strategy (context, encoded, auth) {
 		const self = this;
 
 		if (!auth.secret) {
@@ -25,4 +32,16 @@ module.exports = {
 		}
 
 	}
+
+	async create (user, secret) {
+		secret = secret || this.secret;
+
+		if (!user) throw new Error('auth toked user required');
+		if (!secret) throw new Error('auth toked secret required');
+
+		const token = await JwtSign(user, secret);
+
+		return token;
+	}
+
 }
