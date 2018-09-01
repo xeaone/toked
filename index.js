@@ -13,15 +13,16 @@ module.exports = class Toked {
 		this.secret = options.secret || null;
 	}
 
-	async strategy (context, encoded, auth) {
+	async strategy (context, encoded, options) {
 		const self = this;
+		const secret = options.secret || this.secret;
 
-		if (!auth.secret) {
-			return { valid: false, message: 'auth secret required' };
+		if (!secret) {
+			return { valid: false, message: 'auth toked secret required' };
 		}
 
 		try {
-			const decoded = await JwtVerify(encoded, auth.secret, auth.options);
+			const decoded = await JwtVerify(encoded, secret);
 			return { valid: true, credential: { decoded, encoded } };
 		} catch (error) {
 			if (error.name === 'TokenExpiredError' || error.name === 'JsonWebTokenError') {
