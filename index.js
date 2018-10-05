@@ -11,6 +11,8 @@ module.exports = class Toked {
 	constructor (options) {
 		options = options || {};
 		this.secret = options.secret || null;
+		this.realm = options.realm || 'secure';
+		this.scheme = options.scheme || 'bearer';
 	}
 
 	async strategy (context, encoded, options) {

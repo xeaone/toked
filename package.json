@@ -1,6 +1,6 @@
 {
   "name": "toked",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A Jwt tool for the Servey frame work.",
   "main": "index.js",
   "keywords": [
