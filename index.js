@@ -36,13 +36,13 @@ module.exports = class Toked {
 
 	}
 
-	async create (user, secret) {
+	async create (user, secret, options) {
 		secret = secret || this.secret;
 
-		if (!user) throw new Error('auth toked user required');
-		if (!secret) throw new Error('auth toked secret required');
+		if (!user) throw new Error('toked user required');
+		if (!secret) throw new Error('toked secret required');
 
-		const token = await JwtSign(user, secret);
+		const token = await JwtSign(user, secret, options);
 
 		return token;
 	}
