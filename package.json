@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/AlexanderElias/toked#readme",
   "dependencies": {
-    "jsonwebtoken": "^8.3.0"
+    "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {},
   "scripts": {
